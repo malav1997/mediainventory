@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+
+
+{% block content %}
+<form method="post" class="uniForm">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <p><b>You will be granted access as a Channel Admin within 48 hours of signing up</b></p>
+    <button type="submit" class="btn btn-success">Sign up</button>
+</form>
+{% endblock %}
