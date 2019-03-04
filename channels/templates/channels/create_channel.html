@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+
+{% load bootstrap %}
+
+{% block content %}
+<h2> Create New Channel</h2>
+<form method="post" class="uniForm">
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <button type="submit" class="btn btn-success">Create Channel</button>
+</form>
+{% endblock %}

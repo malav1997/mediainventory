@@ -11,6 +11,15 @@
       <div class="row justify-content-center">
         <div class="col-8">
           <h1 class="mt-2">Media Inventory</h1>
+          {% if user.is_authenticated %}
+          <a href="{% url 'newchannel' %}">
+            Create New Channel
+          </a>
+          <br>
+          <a href="{% url 'logout' %}">
+            Logout
+          </a>
+          {% endif %}
           <hr class="mt-0 mb-4">
           {% block content %}
           {% endblock %}

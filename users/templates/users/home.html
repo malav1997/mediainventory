@@ -5,9 +5,7 @@
     <h2>
         Welcome, {{user.first_name}}
     </h2>
-	<a href="{% url 'logout' %}">
-    Logout
-    </a>
+	
 {% else %}
 	<p>Please Login</p>
 	<a href="{% url 'login' %}">Login</a>
