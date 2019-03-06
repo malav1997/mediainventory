@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrapform',
+    'bootstrap_datepicker_plus',
+    'bootstrap4',
+    'jquery',
+    'django_bootstrap_breadcrumbs',
     'users',
     'channels',
 ]
@@ -113,6 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

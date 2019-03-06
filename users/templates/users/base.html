@@ -5,21 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Media Inventory</title>
+    
   </head>
   <body>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">
           <h1 class="mt-2">Media Inventory</h1>
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1e2455;">
           {% if user.is_authenticated %}
+          
           <a href="{% url 'newchannel' %}">
-            Create New Channel
+            Create New Channel |
+          </a>
+          <br>
+          <a href="{% url 'newprogram' %}">
+          Add New Program |
           </a>
           <br>
           <a href="{% url 'logout' %}">
-            Logout
+          Logout |
           </a>
+        
           {% endif %}
+          </nav>
           <hr class="mt-0 mb-4">
           {% block content %}
           {% endblock %}
@@ -28,3 +37,4 @@
     </div>
   </body>
 </html>
+

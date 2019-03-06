@@ -1,12 +1,19 @@
 {% extends 'users/base.html' %}
 
 {% load bootstrap %}
-
 {% block content %}
+
+{% if user.is_authenticated %}
 <h2> Create New Channel</h2>
 <form method="post" class="uniForm">
     {% csrf_token %}
     {{ form|bootstrap }}
     <button type="submit" class="btn btn-success">Create Channel</button>
 </form>
+
+{% else %}
+<a href="{% url 'login' %}">
+Login
+</a>
+{% endif %}
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %} 
+
+{% load bootstrap4 %}
+{% bootstrap_css %} 
+{% bootstrap_javascript jquery='full' %}       
+
+{% load bootstrap %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2> Add New Program</h2>
+<form method="post" class="uniForm">
+    {% csrf_token %}
+    {{ my_form| bootstrap }}
+    <button type="submit" class="btn btn-success">Add Program</button>
+</form>
+
+{% else %}
+<a href="{% url 'login' %}">
+Login
+</a>
+{% endif %}
+{% endblock %}
+
+
