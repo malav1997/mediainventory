@@ -2,11 +2,15 @@
 {% block content %}
 {% load bootstrap %}
 <form method="post" class="uniForm">
+
+	<center><h2>Sign Up</h2></center>
     {% csrf_token %}
     {{ form|bootstrap }}
-
     <p><b>You will be granted access as a Channel Admin within 48 hours of signing up</b></p>
+    <center>
     <button type="submit" class="btn btn-success">Sign up</button>
+    <button type="reset" class="btn btn-danger">Cancel</button>
+    </center>
 </form>
 {% endblock %}
 
