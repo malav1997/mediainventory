@@ -1,0 +1,26 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    
+    <br>
+    {% if object_list %}
+        {% for channel in object_list %}
+            <span><b><p>Channel: </p></b>{{ channel.channel_name }}</span>
+            <p><b><p>Broadcaster: </p></b>{{ channel.channel_broadcaster }}</p>
+
+            <a class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                View Programs</a>
+            
+            <a class="btn btn-warning btn-sm">
+                <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                Edit Channel</a>
+
+            <a class="btn btn-danger btn-sm">
+                <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
+                Delete Channel
+            </a>
+
+                <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

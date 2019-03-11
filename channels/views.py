@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse
+from django.views.generic import ListView
 
 from users.models import UserProfile
 from channels.models import Channel, Program, Slot
@@ -31,3 +32,12 @@ def new_program(request):
 	else:
 		form = ProgramForm(request.user)
 	return render(request, 'channels/create_program.html', {'my_form': form})
+
+
+class ViewChannel(ListView):
+
+	template_name = 'channels/view_channel.html'
+
+	def get_queryset(self):
+		queryset = Channel.objects.filter(channel_admin=self.request.user)
+		return queryset
