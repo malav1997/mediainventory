@@ -3,24 +3,27 @@
     
     <br>
     {% if object_list %}
-        {% for channel in object_list %}
-            <span><b><p>Channel: </p></b>{{ channel.channel_name }}</span>
-            <p><b><p>Broadcaster: </p></b>{{ channel.channel_broadcaster }}</p>
+        {% for program in object_list %}
+            <span><b><p>Program: </p></b>{{ program.prog_name }}</span>
+            <p><b><p>Start Time: </p></b>{{ program.start_time }}</p>
+            <p><b><p>End Time: </p></b>{{ program.end_time }}</p>
 
-            <a href="{% url 'viewprogram' channel.id %}" class="btn btn-success btn-sm">
+            <a class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
-                View Programs</a>
+                Create Slot</a>
             
             <a class="btn btn-warning btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
-                Edit Channel</a>
+                Edit Program</a>
 
             <a class="btn btn-danger btn-sm">
                 <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
-                Delete Channel
+                Delete Program
             </a>
 
                 <hr>
         {% endfor %}
+    {% else %}
+        <h2>No Programs in this channel!</h2>
     {% endif %}
 {% endblock %}

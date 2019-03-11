@@ -41,3 +41,13 @@ class ViewChannel(ListView):
 	def get_queryset(self):
 		queryset = Channel.objects.filter(channel_admin=self.request.user)
 		return queryset
+
+class ViewProgram(ListView):
+
+	template_name = 'channels/view_program.html'
+
+	def get_queryset(self, **kwargs):
+		#channel = Channel.objects.get(id=kwargs['id'])
+  		id = self.kwargs['id']
+  		queryset = Program.objects.filter(channel=id)
+  		return queryset	
