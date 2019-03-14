@@ -8,17 +8,17 @@
             <p><b><p>Start Time: </p></b>{{ program.start_time }}</p>
             <p><b><p>End Time: </p></b>{{ program.end_time }}</p>
 
-            <a class="btn btn-success btn-sm">
+            <a href="{% url 'createslot' program.id %}" class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
                 Create Slot</a>
             
-            <a class="btn btn-warning btn-sm">
+            <a class="btn btn-info btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
-                Edit Program</a>
+                View Slots</a>
 
-            <a class="btn btn-danger btn-sm">
+            <a class="btn btn-warning btn-sm">
                 <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
-                Delete Program
+                Edit Program
             </a>
 
                 <hr>

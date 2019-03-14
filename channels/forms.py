@@ -26,3 +26,4 @@ class ProgramForm(forms.ModelForm):
 
 		super(ProgramForm, self).__init__(*args, **kwargs)
 		self.fields['channel'].queryset = Channel.objects.filter(channel_admin=user)
+
