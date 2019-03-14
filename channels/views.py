@@ -29,7 +29,7 @@ def new_program(request):
 
     if request.method == 'POST':
         form = ProgramForm(request.user, request.POST)
-        if my_form.is_valid():
+        if form.is_valid():
             form.save()
             return render(request, 'channels/program_success.html')
 
@@ -77,3 +77,14 @@ class NewSlot(CreateView):
     	self.prog = get_object_or_404(Program, pk=pk)
     	kwargs['program'] = self.prog
     	return super(NewSlot, self).get_context_data(**kwargs)
+
+
+class ViewSlot(ListView):
+
+	template_name = 'channels/view_slot.html'
+
+	def get_queryset(self, **kwargs):
+		pk = self.kwargs['id']
+		queryset = Program.objects.filter(id=pk)
+		return queryset
+		

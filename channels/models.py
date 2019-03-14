@@ -38,4 +38,4 @@ class Slot(models.Model):
     price = models.FloatField()
 
     def __str__(self):
-        return self.prog.prog_name + '-' + self.duration
+        return self.prog.prog_name + '-' + str(self.duration)

@@ -6,7 +6,7 @@
 	<p><b>You are creating a slot for {{ program.prog_name }} </b><p>
     <form action="" method="post" class="uniForm">{% csrf_token %}
     {{ form|bootstrap }}
-    <button type="submit" class="btn btn-info">Create</button>
+    <button type="submit" class="btn btn-success">Create</button>
     <p><b>*The Duration entered are in seconds</b><p>
     </form>
 {% endblock %}
