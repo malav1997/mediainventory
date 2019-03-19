@@ -1,47 +1,81 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Media Inventory</title>
-    
-  </head>
-  <body>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <center>
-          <h1 class="mt-2">Media Inventory</h1>
-          {% if user.is_authenticated %}
-          <a href="{% url 'logout' %}">
-          Logout 
-          </a>
-          {% endif %}
-          </center>
-          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1e2455;">
-          {% if user.is_authenticated %}
-          
-          <a href="{% url 'newchannel' %}">
-            Create New Channel |
-          </a>
-          <br>
-          <a href="{% url 'newprogram' %}">
-          Add New Program |
-          </a>
-          <br>
-          <a href="{% url 'viewchannel' %}">
-          Manage Your Channels |
-          </a>
-          <br>
-          {% endif %}
-          </nav>
-          <hr class="mt-0 mb-4">
-          {% block content %}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
 
+</head>
+
+<body>
+    {% if user.is_authenticated %} {% block navigate %}
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #979797;">
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: #E2141B "><b>Media Inventory</b></a>
+        <div id="navbarNav">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}" style="color: #1E3212">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #1E3212">
+                    Manage Channels
+                  </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'newchannel' %}" style="color: #1E3212"> Create New Channel</a>
+                        <a class="dropdown-item" href="{% url 'viewchannel' %}" style="color: #1E3212">View Your Channels</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #1E3212">
+                    Manage Programs
+                  </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'newprogram' %}" style="color: #1E3212"> Create New Program</a>
+                        <a class="dropdown-item" href="{% url 'viewchannel' %}" style="color: #1E3212">View Programs</a>
+                        <a class="dropdown-item" href="{% url 'viewchannel' %}" style="color: #1E3212">Create Slot</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #1E3212">
+                        <b>{{user.username}}</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'logout' %}" style="color: #1E3212"> Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    {% endblock %} {% block content %} {% endblock %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </div>
+    </div>
+    </div>
+    {% else %} {% block navigate2 %}
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="{% url 'home' %}">Media Inventory</a>
+        <div id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    {% endblock %} {% block content1 %} {% endblock %} {% endif %}
+
+</body>
+
+</html>

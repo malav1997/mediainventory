@@ -1,7 +1,11 @@
 {% extends 'users/base.html' %}
-{% block content %}
+{% block content1 %}
 {% load bootstrap %}
 <form method="post" class="uniForm">
+	<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+
 
 	<center><h2>Sign Up</h2></center>
     {% csrf_token %}

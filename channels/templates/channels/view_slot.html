@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-left">
+            <div class="col-8">
+
+    <br>
+    {% if object_list %}
+        {% for program in object_list %}
+            <span><b><p>Program: {{ program.prog_name }}</p></b></span>
+            <span><b><p>Start Time: {{ program.start_time }}</p></b></span>
+            <span><b><p>End Time: {{ program.end_time }}</p></b></span>
+            <span><b><p>Slot Details: </p></b></span>
+            {% for slot in program.slot_set.all %}
+                 
+                <p><b>Duration: </b>{{ slot.duration }} seconds </p>
+                <p><b>Price: </b>Rs.{{ slot.price }}</p>
+                <a class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Edit Slot</a>
+            
+            <a class="btn btn-danger btn-sm">
+                <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                Delete Slot</a>
+
+            
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <h2>No Slots in this program!</h2>
+    {% endif %}
+{% endblock %}
