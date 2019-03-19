@@ -13,7 +13,7 @@
 <body>
     {% if user.is_authenticated %} {% block navigate %}
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #979797;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="{% url 'home' %}" style="color: #E2141B "><b>Media Inventory</b></a>
         <div id="navbarNav">
             <ul class="nav navbar-nav navbar-left">
@@ -61,7 +61,7 @@
     {% else %} {% block navigate2 %}
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="{% url 'home' %}">Media Inventory</a>
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: #E2141B">Media Inventory</a>
         <div id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
