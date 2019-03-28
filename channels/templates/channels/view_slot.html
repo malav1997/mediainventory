@@ -4,6 +4,8 @@
         <div class="row justify-content-left">
             <div class="col-8">
 
+
+
     <br>
     {% if object_list %}
         {% for program in object_list %}
@@ -11,6 +13,11 @@
             <span><b><p>Start Time: {{ program.start_time }}</p></b></span>
             <span><b><p>End Time: {{ program.end_time }}</p></b></span>
             <span><b><p>Slot Details: </p></b></span>
+            <div class="row justify-content-left">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card bg-light mb-3" style="position: relative; top: 30px;">
+        <div class="card-body">
+    
             {% for slot in program.slot_set.all %}
                  
                 <p><b>Duration: </b>{{ slot.duration }} seconds </p>

@@ -10,7 +10,8 @@
 
 </head>
 
-<body>
+<body background="url(static/img/pipes.png)">
+
     {% if user.is_authenticated %} {% block navigate %}
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
@@ -39,7 +40,13 @@
                         <a class="dropdown-item" href="{% url 'viewchannel' %}" style="color: #1E3212">Create Slot</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <!--  -->
+            </ul>
+
+        </div>
+        <div id="navbarNav">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #1E3212">
                         <b>{{user.username}}</b>
                     </a>
@@ -48,9 +55,10 @@
                     </div>
                 </li>
             </ul>
-
+          
         </div>
     </nav>
+
     {% endblock %} {% block content %} {% endblock %}
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>

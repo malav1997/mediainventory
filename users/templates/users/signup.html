@@ -6,13 +6,16 @@
         <div class="row justify-content-center">
             <div class="col-8">
 
-
-	<center><h2>Sign Up</h2></center>
+    <div class="row justify-content-center" style="position: relative; top: 30px;">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="card bg-light mb-3">
+        <div class="card-body">
+          <h3 class="card-title"><b>Sign up</b></h3>
     {% csrf_token %}
     {{ form|bootstrap }}
     <p><b>You will be granted access as a Channel Admin within 48 hours of signing up</b></p>
     <center>
-    <button type="submit" class="btn btn-success">Sign up</button>
+    <button type="submit" class="btn btn-primary">Create Account</button>
     <button type="reset" class="btn btn-danger">Cancel</button>
     </center>
 </form>

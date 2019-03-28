@@ -146,3 +146,6 @@ LOGOUT_REDIRECT_URL = 'login'
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'users.UserProfile'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'finalproject/media/'

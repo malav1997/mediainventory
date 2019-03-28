@@ -12,8 +12,11 @@
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-
-<h2> Add New Program</h2>
+<div class="row justify-content-left">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card bg-light mb-3" style="position: relative; top: 30px;">
+        <div class="card-body">
+          <h3 class="card-title"><b>Add New Program</b></h3>
 <form method="post" class="uniForm">
     {% csrf_token %}
     {{ my_form| bootstrap }}
