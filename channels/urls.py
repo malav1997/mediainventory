@@ -11,5 +11,7 @@ urlpatterns = [
     path('channel/view', views.ViewChannel.as_view(), name='viewchannel'),
     url(r'program/view/(?P<id>\d+)/$', views.ViewProgram.as_view(), name='viewprogram'),
     url(r'slot/create/(?P<id>\d+)/$', views.NewSlot.as_view(), name='createslot'),
-    url(r'slot/view/(?P<id>\d+)/$', views.ViewSlot.as_view(), name='viewslot') 
+    url(r'slot/view/(?P<id>\d+)/$', views.ViewSlot.as_view(), name='viewslot'),
+    path('edit/channel/<int:channel_id>/', views.ChannelUpdate.as_view(), name='editchannel'),
+    path('edit/program/<int:program_id>/', views.ProgramUpdate.as_view(), name='editprogram'),
 ]

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-8">
 
-    <div class="row justify-content-left">
+    <div class="row justify-content-center">
     <div class="col-lg-8 col-md-8 col-sm-8">
       <div class="card bg-light mb-3" style="position: relative; top: 30px;">
         <div class="card-body">
@@ -14,7 +14,8 @@
 	<p><b>You are creating a slot for {{ program.prog_name }} </b><p>
     <form action="" method="post" class="uniForm">{% csrf_token %}
     {{ form|bootstrap }}
-    <button type="submit" class="btn btn-success">Create</button>
-    <p><b>*The Duration entered are in seconds</b><p>
+    <center><p><b>*The Duration entered are in seconds</b><p></center>
+    <center><button type="submit" class="btn btn-success">Create</button></center>
+    
     </form>
 {% endblock %}

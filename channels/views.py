@@ -3,6 +3,8 @@ from django.views import generic
 from django.http import HttpResponse
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
+from django.views.generic.edit import UpdateView
+
 
 from users.models import UserProfile
 from channels.models import Channel, Program, Slot
@@ -73,6 +75,7 @@ class NewSlot(CreateView):
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
+    	
     	pk = self.request.path.split('create/')[1].replace('/', '')
     	self.prog = get_object_or_404(Program, pk=pk)
     	kwargs['program'] = self.prog
@@ -88,3 +91,16 @@ class ViewSlot(ListView):
 		queryset = Program.objects.filter(id=pk)
 		return queryset
 		
+
+class ChannelUpdate(UpdateView):
+	model = Channel
+	fields = ['channel_name', 'channel_broadcaster', 'channel_desc']
+	template_name='channels/edit_channel.html'
+	pk_url_kwarg = 'channel_id'
+
+
+class ProgramUpdate(UpdateView):
+	model = Program
+	fields = ['prog_name', 'channel', 'start_date', 'end_date', 'start_time', 'end_time', 'prog_desc' ]
+	template_name='channels/edit_program.html'
+	pk_url_kwarg='program_id'

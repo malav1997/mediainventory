@@ -1,7 +1,7 @@
 {% extends 'users/base.html' %}
 {% block content %}
 <div class="container">
-        <div class="row justify-content-left">
+        <div class="row justify-content-center">
             <div class="col-8">
     <div class="row justify-content-center">
     <div class="col-lg-8 col-md-8 col-sm-8">
@@ -17,7 +17,7 @@
                 <span class="glyphicon glyphicon-edit"></span>
                 View Programs</a>
             
-            <a class="btn btn-warning btn-sm">
+            <a href="{% url 'editchannel' channel.id %}" class="btn btn-warning btn-sm">
                 <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
                 Edit Channel</a>
 

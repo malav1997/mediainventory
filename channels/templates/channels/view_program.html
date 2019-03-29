@@ -1,7 +1,7 @@
 {% extends 'users/base.html' %}
 {% block content %}
 <div class="container">
-        <div class="row justify-content-left">
+        <div class="row justify-content-center">
             <div class="col-8">
 
     <div class="row justify-content-center">
@@ -24,7 +24,7 @@
                 <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
                 View Slots</a>
 
-            <a class="btn btn-warning btn-sm">
+            <a href="{% url 'editprogram' program.id %}" class="btn btn-warning btn-sm">
                 <i class="fa fa-trash" aria-hidden="true" style="color: black"></i>
                 Edit Program
             </a>
