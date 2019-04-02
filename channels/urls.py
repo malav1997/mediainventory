@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'slot/view/(?P<id>\d+)/$', views.ViewSlot.as_view(), name='viewslot'),
     path('edit/channel/<int:channel_id>/', views.ChannelUpdate.as_view(), name='editchannel'),
     path('edit/program/<int:program_id>/', views.ProgramUpdate.as_view(), name='editprogram'),
+    path('edit/slot/<int:slot_id>/', views.SlotUpdate.as_view(), name='editslot')
 ]

@@ -8,7 +8,7 @@ from django.views.generic.edit import UpdateView
 
 from users.models import UserProfile
 from channels.models import Channel, Program, Slot
-from channels.forms import ChannelForm, ProgramForm
+from channels.forms import ChannelForm, ProgramForm, EditSlotForm
 
 
 def new_channel(request):
@@ -104,3 +104,11 @@ class ProgramUpdate(UpdateView):
 	fields = ['prog_name', 'channel', 'start_date', 'end_date', 'start_time', 'end_time', 'prog_desc' ]
 	template_name='channels/edit_program.html'
 	pk_url_kwarg='program_id'
+
+
+class SlotUpdate(UpdateView):
+	model = Slot
+	form_class= EditSlotForm
+	template_name = 'channels/edit_slot.html'
+	pk_url_kwarg = 'slot_id' 
+

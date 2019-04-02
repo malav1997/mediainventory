@@ -27,3 +27,9 @@ class ProgramForm(forms.ModelForm):
 		super(ProgramForm, self).__init__(*args, **kwargs)
 		self.fields['channel'].queryset = Channel.objects.filter(channel_admin=user)
 
+
+class EditSlotForm(forms.ModelForm):
+	class Meta:
+		model=Slot
+		fields = ['prog', 'duration', 'price']
+	prog = forms.CharField(disabled=True)
