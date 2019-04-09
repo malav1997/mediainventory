@@ -1,0 +1,29 @@
+{% extends 'users/base.html' %}
+
+{% load bootstrap %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+
+    <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card bg-light mb-3" style="position: relative; top: 30px;">
+        <div class="card-body">
+          <h3 class="card-title"><b>Edit Slot Details</b></h3>
+			<form method="post" class="uniForm">
+    			{% csrf_token %}
+               {{ program.prog_name }}
+    			{{ form|bootstrap }}
+                {{form.Program_name}}
+    			<center><button type="submit" class="btn btn-success">Save</button></center>
+			</form>
+
+{% else %}
+<a href="{% url 'login' %}">
+Login
+</a>
+{% endif %}
+{% endblock %}

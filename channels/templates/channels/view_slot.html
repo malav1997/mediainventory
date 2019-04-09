@@ -32,15 +32,21 @@
                  
                 <p><b>Duration: </b>{{ slot.duration }} seconds </p>
                 <p><b>Price: </b>Rs.{{ slot.price }}</p>
+                <p><b>Status: </b>{{ slot.status }}</p>
+
+                {% if user.user_role == 'superuser' or user.user_role == 'channel_admin' %}
+
                 <a href="{% url 'editslot' slot.id %}" class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
                 Edit Slot</a>
-            
-            <a class="btn btn-danger btn-sm">
-                <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
-                Delete Slot</a>
 
-            
+                {% else %}
+
+                <a class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                Buy Slot</a>
+
+                {% endif %}
             {% endfor %}
         {% endfor %}
     {% else %}

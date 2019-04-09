@@ -36,6 +36,7 @@ class Slot(models.Model):
     prog = models.ForeignKey(Program, on_delete=models.PROTECT)
     duration = models.FloatField()
     price = models.FloatField()
+    status = models.CharField(max_length=256, default='Unsold')
 
     def __str__(self):
         return self.prog.prog_name + '-' + str(self.duration)
