@@ -12,10 +12,12 @@
     <br>
     {% if object_list %}
         {% for program in object_list %}
+
             <span><b><p>Program: </p></b>{{ program.prog_name }}</span>
             <p><b><p>Start Time: </p></b>{{ program.start_time }}</p>
             <p><b><p>End Time: </p></b>{{ program.end_time }}</p>
 
+            {% if user.user_role == 'superuser' or user.user_role == 'channel_admin' %}
             <a href="{% url 'createslot' program.id %}" class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
                 Create Slot</a>
@@ -29,9 +31,39 @@
                 Edit Program
             </a>
 
-                <hr>
+            {% else %}
+                <a href="{% url 'viewslot' program.id %}" class="btn btn-info btn-sm">
+                <i class="fa fa-pencil" aria-hidden="true" style="color: black"></i>
+                View Slots</a>
+                
+            {% endif %}
+            <hr>
+            
         {% endfor %}
     {% else %}
         <h2>No Programs in this channel!</h2>
     {% endif %}
+
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
 {% endblock %}

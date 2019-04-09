@@ -8,7 +8,7 @@ from django.views.generic.edit import UpdateView
 
 from users.models import UserProfile
 from channels.models import Channel, Program, Slot
-from channels.forms import ChannelForm, ProgramForm, EditSlotForm
+from channels.forms import ChannelForm, ProgramForm
 
 
 def new_channel(request):
@@ -52,6 +52,7 @@ class ViewChannel(ListView):
 class ViewProgram(ListView):
 
     template_name = 'channels/view_program.html'
+    paginate_by = 1
 
     def get_queryset(self, **kwargs):
         id = self.kwargs['id']
@@ -97,6 +98,7 @@ class ChannelUpdate(UpdateView):
 	fields = ['channel_name', 'channel_broadcaster', 'channel_desc']
 	template_name='channels/edit_channel.html'
 	pk_url_kwarg = 'channel_id'
+	success_url = reverse_lazy('viewchannel')
 
 
 class ProgramUpdate(UpdateView):
@@ -104,11 +106,14 @@ class ProgramUpdate(UpdateView):
 	fields = ['prog_name', 'channel', 'start_date', 'end_date', 'start_time', 'end_time', 'prog_desc' ]
 	template_name='channels/edit_program.html'
 	pk_url_kwarg='program_id'
+	success_url = reverse_lazy('viewchannel')
 
 
 class SlotUpdate(UpdateView):
 	model = Slot
-	form_class= EditSlotForm
+	fields = ['prog', 'duration', 'price']
 	template_name = 'channels/edit_slot.html'
-	pk_url_kwarg = 'slot_id' 
+	pk_url_kwarg = 'slot_id'
+	success_url = reverse_lazy('viewchannel') 
+
 

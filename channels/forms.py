@@ -28,8 +28,8 @@ class ProgramForm(forms.ModelForm):
 		self.fields['channel'].queryset = Channel.objects.filter(channel_admin=user)
 
 
-class EditSlotForm(forms.ModelForm):
-	class Meta:
-		model=Slot
-		fields = ['prog', 'duration', 'price']
-	prog = forms.CharField(disabled=True)
+
+
+	
+
+	
