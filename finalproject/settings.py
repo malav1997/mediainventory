@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_bootstrap_breadcrumbs',
     'users',
     'channels',
+    'payments',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

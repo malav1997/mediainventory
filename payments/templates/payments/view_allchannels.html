@@ -1,0 +1,23 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+    <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card bg-light mb-3" style="position: relative; top: 30px;">
+        <div class="card-body">
+    <br>
+    {% if object_list %}
+        {% for channel in object_list %}
+
+            <span><b><p>Channel: </p></b>{{ channel.channel_name }}</span>
+            <p><b><p>Broadcaster: </p></b>{{ channel.channel_broadcaster }}</p>
+
+            <a href="{% url 'viewprogram' channel.id %}" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-edit"></span>
+                View Programs</a>
+            <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
