@@ -32,7 +32,7 @@
                  
                 <p><b>Duration: </b>{{ slot.duration }} seconds </p>
                 <p><b>Price: </b>Rs.{{ slot.price }}</p>
-                <p><b>Status: </b>{{ slot.status }}</p>
+                <p><b>Status: </b>{{ slot.status }}</p>     
 
                 {% if user.user_role == 'superuser' or user.user_role == 'channel_admin' %}
 
@@ -42,9 +42,10 @@
 
                 {% else %}
 
-                <a class="btn btn-success btn-sm">
+                <a href="{% url 'paymentdetails' slot.id %}" class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-edit"></span>
                 Buy Slot</a>
+
 
                 {% endif %}
             {% endfor %}

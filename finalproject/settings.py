@@ -150,3 +150,6 @@ AUTH_USER_MODEL = 'users.UserProfile'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'finalproject/media/'
+
+STRIPE_SECRET_KEY = 'sk_test_3bV4UsHOABbwPRQFjDFUcIrx0069qzufcg'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_Pi2Ww3V4d4bA5J6T242CPBHs00eLJwURZq'
