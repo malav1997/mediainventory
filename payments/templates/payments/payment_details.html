@@ -1,0 +1,35 @@
+{% extends 'users/base.html' %}
+{% block content %}
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+    <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="card bg-light mb-3x " style="position: relative; top: 30px;">
+        <div class="card-body">
+    <h2>Your Slot Booking Details</h2>
+    <p><b>Please make the payment to confirm your booking.</b></p>
+
+                
+                
+           
+    <br>
+    {% if object_list %}
+        {% for slot in object_list %}
+
+            <span><b><p>Program: </p></b>{{ slot.prog }}</span>
+            <p><b><p>Duration: </p></b>{{ slot.duration }} seconds</p>
+            <p><b><p>Price: </p></b>Rs.{{ slot.price }}</p>
+<form method="post" class="uniForm" action="{% url 'getprice' slot.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="price" value="{{ slot.price }}">
+            <input type="hidden" name="slot" value="{{ slot.id }}">
+
+
+            <center><button type="submit" class="btn btn-success">Make Payment</button></center>
+</form>
+ 
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

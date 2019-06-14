@@ -1,0 +1,8 @@
+
+{% extends "users/base.html" %}
+{% block content %}
+  <p>Your Payment for  <strong>${{ amount }} </strong>is successful!!</p>
+  <p>You have successfully booked your slot</p>
+    <br/>
+    <a href="{{ receipt_url }}"><p>View Your Receipt</p></a>
+{% endblock %}

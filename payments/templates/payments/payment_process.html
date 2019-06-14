@@ -1,0 +1,21 @@
+
+{% extends "users/base.html" %}
+{% block content %}
+ <form method="post" class="uniForm" action="{% url 'generatereceipt' %}">
+        {% csrf_token %}
+        <input type="hidden" id="amount" name="amount" value="{{ amount }}"/>
+        <input type="hidden" id="amount_main" name="amount_main" value="{{ amount_main }}"/>
+        <input type="hidden" id="user" name="user" value="{{ user.id }}"/>
+        <input type="hidden" id="slot" name="slot" value="{{ slot }}"/>
+
+      <label>
+        <span><center>Amount is ${{ amount }} </center></span>
+      </label>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-description="Media Inventory"
+            data-amount="{{ amount_main }}"
+            data-locale="auto"></script>
+  </form>
+{% endblock %}
