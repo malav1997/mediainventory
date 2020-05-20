@@ -9,7 +9,7 @@ django-bootstrap-datepicker-plus==3.0.5
 django-bootstrap-form==3.4
 django-bootstrap4==0.0.7
 django-jquery==3.1.0
-httplib2==0.12.3
+httplib2==0.18.0
 idna==2.8
 ipdb==0.11
 ipython==7.3.0
